@@ -8,9 +8,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-
+const dbUrl = process.env.dbUrl || "mongodb://127.0.0.1:27017/kalpas";
 mongoose
-  .connect("mongodb://127.0.0.1:27017/kalpas", {})
+  .connect(dbUrl, {})
   .then(() => console.log("mongodb connected"))
   .catch((err) => console.log(err));
 
